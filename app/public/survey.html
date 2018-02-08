@@ -139,25 +139,32 @@
                     </select>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn" data-toggle="modal" data-target="#myModal">Submit</button>
                 <hr>
             </form>
             <br>
         </div>
         <a href="/api/friends">API Friends Link</a>
     </div>
-<!-- 
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Closest Match</h4>
-            <div class="divider"></div>
-            <h5 id="userMatch"></h5>
-            <img id="userMatchPhoto" class="materialboxed" width="650" src="">
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel">Your Match</h3>
+        </div>
+        <div class="modal-body">
+            <h4 id="userMatch"></h4>
+			<img id="userMatchPhoto" class="materialboxed" width="650" src="">
+		</div>
         </div>
         <div class="modal-footer">
-            <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-    </div> -->
+      </div>
+    </div>
+  </div>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -187,7 +194,7 @@
                     .done(function (data) {
                         $('#userMatch').html(data.matchName);
                         $("#userMatchPhoto").attr("src", data.matchPhoto)
-                        $('#modal1').modal('open');
+                        $('#myModal').modal('open');
                     })
 
             });
