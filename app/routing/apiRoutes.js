@@ -23,13 +23,13 @@ module.exports = function (app) {
             // calculate differences for each question
             var diff = 0;
             for (var j = 0; j < userScore.length; j++) {
-                diff += Math.abs(friendData[i].scores[j] - userScore[j]);
+                diff += Math.abs(friendData[i].scores[j] - parseInt(userScore[j]))
             }
 
             if (diff < totalDifference) {
                 totalDifference = diff;
-                matchName = friends[i].name;
-                matchPhoto = friends[i].url;
+                matchName = friendData[i].name;
+                matchPhoto = friendData[i].url;
             }
         }
 
