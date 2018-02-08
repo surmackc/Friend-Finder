@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Survey</title>
-    <!-- Latest compiled and minified CSS & JS -->
+    <!-- CSS & JS -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -27,6 +27,7 @@
                     <label for="photo">Link to photo image (required)</label>
                     <input type="text" class="form-control" id="photo" required>
                 </div>
+                <h5>1 = strongly disagree/5 = strongly agree</h5>
                 <div class="form-group">
                     <h4>Question 1</h4>
                     <label for="survey1">Your mind is always buzzing with unexplored ideas and plans.</label>
@@ -146,25 +147,27 @@
         </div>
         <a href="/api/friends">API Friends Link</a>
     </div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title" id="myModalLabel">Your Match</h3>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title" id="myModalLabel">Your Match</h3>
+                </div>
+                <div class="modal-body">
+                    <h4 id="userMatch"></h4>
+                    <img id="userMatchPhoto" class="materialboxed" width="650" src="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-body">
-            <h4 id="userMatch"></h4>
-			<img id="userMatchPhoto" class="materialboxed" width="650" src="">
-		</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+    </div>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -194,7 +197,7 @@
                     .done(function (data) {
                         $('#userMatch').html(data.matchName);
                         $("#userMatchPhoto").attr("src", data.matchPhoto)
-                        $('#myModal').modal('open');
+                        $('#myModal').modal('show');
                     })
 
             });
