@@ -1,1 +1,3 @@
-let friends = [];
+var friendsArray = [];
+
+module.exports = friendsArray;
